@@ -26,18 +26,18 @@
   .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
   .hero .heroimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;animation:kb 22s ease-in-out infinite alternate}
   @keyframes kb{from{transform:scale(1)}to{transform:scale(1.09)}}
-  .hero .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(14,10,7,.55) 0%,rgba(14,10,7,.35) 40%,rgba(14,10,7,.92) 100%)}
+  .hero .scrim{position:absolute;inset:0;z-index:1;background:radial-gradient(120% 90% at 50% 62%,rgba(8,6,4,.30) 0%,rgba(8,6,4,.78) 60%,rgba(8,6,4,.96) 100%),linear-gradient(180deg,rgba(8,6,4,.55) 0%,rgba(8,6,4,.25) 42%,rgba(8,6,4,.97) 100%)}
   .hero .wrap{position:relative;z-index:2}
   .openbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(37,211,102,.14);border:1px solid rgba(37,211,102,.5);color:#8af0ad;padding:6px 14px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:22px}
   .openbadge .d{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.5s infinite}
   @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(37,211,102,.5)}50%{opacity:.6;box-shadow:0 0 0 6px rgba(37,211,102,0)}}
-  .hero .kicker{color:var(--gold);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:13px}
-  .hero h1{font-size:60px;font-weight:800;line-height:1.04;margin:16px 0 18px;text-shadow:0 4px 30px rgba(0,0,0,.5)}
-  .hero h1 em{font-style:normal;color:var(--gold)}
-  .hero p{color:#f0e6d8;font-size:20px;max-width:600px;margin:0 auto 32px;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+  .hero .kicker{color:#ffcf7a;font-weight:800;letter-spacing:.22em;text-transform:uppercase;font-size:12.5px;text-shadow:0 2px 12px rgba(0,0,0,.8)}
+  .hero h1{font-size:78px;font-weight:900;line-height:1.0;letter-spacing:-.02em;margin:14px 0 20px;text-shadow:0 6px 40px rgba(0,0,0,.85),0 2px 8px rgba(0,0,0,.6)}
+  .hero h1 em{font-style:normal;background:linear-gradient(105deg,#ffd166,#e6a23c 55%,#ff8c42);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:none;filter:drop-shadow(0 4px 24px rgba(230,162,60,.5))}
+  .hero p{color:#f3ead9;font-size:21px;max-width:600px;margin:0 auto 34px;text-shadow:0 2px 18px rgba(0,0,0,.9)}
   .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .btn{padding:15px 30px;border-radius:999px;text-decoration:none;font-weight:700;font-size:16px;transition:.22s}
-  .btn-primary{background:var(--gold);color:#2a1c08}
+  .btn{padding:16px 34px;border-radius:999px;text-decoration:none;font-weight:800;font-size:16px;transition:.24s;letter-spacing:.01em}
+  .btn-primary{background:linear-gradient(135deg,#ffd166,#e6a23c);color:#2a1c08;box-shadow:0 10px 34px rgba(230,162,60,.45)}
   .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(230,162,60,.4)}
   .btn-ghost{border:1px solid rgba(255,255,255,.4);color:#fff;backdrop-filter:blur(4px)}
   .btn-ghost:hover{background:rgba(255,255,255,.12)}
@@ -100,7 +100,12 @@
   .wafloat:hover{transform:scale(1.1)}
   footer{text-align:center;color:var(--muted);font-size:13px;padding:44px 0;border-top:1px solid var(--line)}
   footer b{color:var(--gold)}
-  @media(max-width:760px){.hero h1{font-size:40px}.cards,.why{grid-template-columns:1fr}}
+  .hero .an{opacity:0;transform:translateY(26px);animation:heroUp .9s cubic-bezier(.2,.75,.2,1) forwards}
+  .hero .an.d1{animation-delay:.12s}.hero .an.d2{animation-delay:.26s}.hero .an.d3{animation-delay:.4s}.hero .an.d4{animation-delay:.54s}
+  @keyframes heroUp{to{opacity:1;transform:none}}
+  .sec-title{position:relative}
+  .sec-title::after{content:"";display:block;width:64px;height:4px;border-radius:3px;margin:14px auto 0;background:linear-gradient(90deg,#ffd166,#e6a23c)}
+  @media(max-width:760px){.hero h1{font-size:44px}.cards,.why{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -113,11 +118,11 @@
   <img class="heroimg" src="img/hero.png" alt="Arepa Point de noche en Miami">
   <div class="scrim"></div>
   <div class="wrap">
-    <div class="openbadge"><span class="d"></span> Abierto ahora · arepas hasta medianoche</div>
-    <div class="kicker">Original Street Arepera · Doral & Kendall · desde 2020</div>
-    <h1>Arepas are <em>our vibe</em></h1>
-    <p>La arepera de la calle que se volvió parada obligada en Miami. Recién hechas, a la orden, hasta que cierre la noche.</p>
-    <div class="btns">
+    <div class="openbadge an d1"><span class="d"></span> Abierto ahora · arepas hasta medianoche</div>
+    <div class="kicker an d1">Original Street Arepera · Doral & Kendall · desde 2020</div>
+    <h1 class="an d2">Arepas are <em>our vibe</em></h1>
+    <p class="an d3">La arepera de la calle que se volvió parada obligada en Miami. Recién hechas, a la orden, hasta que cierre la noche.</p>
+    <div class="btns an d4">
       <a class="btn btn-primary" href="#menu">Ver el menú</a>
       <a class="btn btn-ghost" href="#contacto">Cómo llegar</a>
     </div>
