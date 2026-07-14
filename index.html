@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arepa Point Miami · Original Street Arepera · Doral & Kendall</title>
+<style>
+  :root{
+    --bg:#0e0a07; --card:#1a130d; --line:#33271b;
+    --txt:#fdf6ee; --muted:#c9b8a6; --gold:#e6a23c; --red:#c0392b; --green:#25d366;
+    --font:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--txt);font-family:var(--font);line-height:1.6;overflow-x:hidden}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(14,10,7,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:15px 22px}
+  .logo{font-weight:800;font-size:20px;letter-spacing:.02em}
+  .logo span{color:var(--gold)}
+  nav a.cta{background:var(--green);color:#06270f;font-weight:700;padding:10px 18px;border-radius:999px;text-decoration:none;font-size:14px;transition:.2s}
+  nav a.cta:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(37,211,102,.35)}
+  /* hero con video */
+  .hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+  .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .hero .heroimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;animation:kb 22s ease-in-out infinite alternate}
+  @keyframes kb{from{transform:scale(1)}to{transform:scale(1.09)}}
+  .hero .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(14,10,7,.55) 0%,rgba(14,10,7,.35) 40%,rgba(14,10,7,.92) 100%)}
+  .hero .wrap{position:relative;z-index:2}
+  .openbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(37,211,102,.14);border:1px solid rgba(37,211,102,.5);color:#8af0ad;padding:6px 14px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:22px}
+  .openbadge .d{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.5s infinite}
+  @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(37,211,102,.5)}50%{opacity:.6;box-shadow:0 0 0 6px rgba(37,211,102,0)}}
+  .hero .kicker{color:var(--gold);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:13px}
+  .hero h1{font-size:60px;font-weight:800;line-height:1.04;margin:16px 0 18px;text-shadow:0 4px 30px rgba(0,0,0,.5)}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero p{color:#f0e6d8;font-size:20px;max-width:600px;margin:0 auto 32px;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+  .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{padding:15px 30px;border-radius:999px;text-decoration:none;font-weight:700;font-size:16px;transition:.22s}
+  .btn-primary{background:var(--gold);color:#2a1c08}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(230,162,60,.4)}
+  .btn-ghost{border:1px solid rgba(255,255,255,.4);color:#fff;backdrop-filter:blur(4px)}
+  .btn-ghost:hover{background:rgba(255,255,255,.12)}
+  .scrolldown{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:2;color:var(--muted);font-size:24px;animation:bounce 1.8s infinite}
+  @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+  /* stats counters */
+  .stripstats{background:#120d09;border-bottom:1px solid var(--line)}
+  .stripstats .wrap{display:flex;justify-content:space-around;flex-wrap:wrap;gap:20px;padding:30px 22px}
+  .st{text-align:center}
+  .st b{display:block;font-size:34px;font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums}
+  .st span{color:var(--muted);font-size:13px}
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(34px);transition:all .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal[data-d="1"]{transition-delay:.12s}.reveal[data-d="2"]{transition-delay:.24s}.reveal[data-d="3"]{transition-delay:.36s}
+  section{padding:74px 0}
+  .sec-title{text-align:center;font-size:36px;font-weight:800;margin-bottom:8px}
+  .sec-sub{text-align:center;color:var(--muted);margin-bottom:44px}
+  /* dishes */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .dish{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.3s;position:relative}
+  .dish:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+  .dish .imgbox{height:200px;overflow:hidden}
+  .dish img{width:100%;height:100%;object-fit:cover;transition:.5s}
+  .dish:hover img{transform:scale(1.08)}
+  .dish .body{padding:20px}
+  .dish h3{font-size:19px;margin-bottom:6px}
+  .dish p{color:var(--muted);font-size:14px}
+  .dish .price{position:absolute;top:14px;right:14px;background:var(--gold);color:#2a1c08;font-weight:800;padding:5px 12px;border-radius:999px;font-size:15px;box-shadow:0 4px 14px rgba(0,0,0,.4)}
+  /* ambiance video band */
+  .band{position:relative;height:340px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
+  .band video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .band .scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,10,7,.85),rgba(14,10,7,.45))}
+  .band .wrap{position:relative;z-index:2}
+  .band h2{font-size:32px;font-weight:800}
+  .band p{color:#e8dccb;margin-top:8px}
+  /* why */
+  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .why div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;transition:.25s}
+  .why div:hover{transform:translateY(-5px);border-color:var(--gold)}
+  .why .em{font-size:30px}
+  .why h3{margin:12px 0 6px;font-size:17px}
+  .why p{color:var(--muted);font-size:14px}
+  /* reviews marquee */
+  .reviews{background:#120d09;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:60px 0;overflow:hidden}
+  .marquee{display:flex;gap:18px;width:max-content;animation:scrollx 36s linear infinite}
+  .reviews:hover .marquee{animation-play-state:paused}
+  @keyframes scrollx{to{transform:translateX(-50%)}}
+  .rev{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;width:330px;flex:none}
+  .rev .stars{color:var(--gold);font-size:14px;margin-bottom:8px}
+  .rev .q{font-size:14px}
+  .rev .who{color:var(--gold);font-weight:700;margin-top:12px;font-size:13px}
+  /* contact */
+  .contact{background:linear-gradient(135deg,#241006,#1a130d);border:1px solid var(--gold);border-radius:26px;padding:52px;text-align:center}
+  .contact h2{font-size:34px;font-weight:800;margin-bottom:10px}
+  .contact p{color:var(--muted);margin-bottom:26px}
+  .info{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;color:var(--muted);font-size:15px;margin-top:26px}
+  /* whatsapp flotante */
+  .wafloat{position:fixed;bottom:24px;right:24px;z-index:60;background:var(--green);width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none;box-shadow:0 8px 28px rgba(37,211,102,.5);animation:pulse 2.4s infinite;transition:.2s}
+  .wafloat:hover{transform:scale(1.1)}
+  footer{text-align:center;color:var(--muted);font-size:13px;padding:44px 0;border-top:1px solid var(--line)}
+  footer b{color:var(--gold)}
+  @media(max-width:760px){.hero h1{font-size:40px}.cards,.why{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <div class="logo">Arepa <span>Point</span></div>
+  <a class="cta" href="#contacto">Pedir ahora</a>
+</div></nav>
+
+<header class="hero">
+  <img class="heroimg" src="img/hero.png" alt="Arepa Point de noche en Miami">
+  <div class="scrim"></div>
+  <div class="wrap">
+    <div class="openbadge"><span class="d"></span> Abierto ahora · arepas hasta medianoche</div>
+    <div class="kicker">Original Street Arepera · Doral & Kendall · desde 2020</div>
+    <h1>Arepas are <em>our vibe</em></h1>
+    <p>La arepera de la calle que se volvió parada obligada en Miami. Recién hechas, a la orden, hasta que cierre la noche.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="#menu">Ver el menú</a>
+      <a class="btn btn-ghost" href="#contacto">Cómo llegar</a>
+    </div>
+  </div>
+  <div class="scrolldown">↓</div>
+</header>
+
+<div class="stripstats">
+  <div class="wrap">
+    <div class="st"><b data-count="52522">52.522</b><span>seguidores en Instagram</span></div>
+    <div class="st"><b data-count="881">881</b><span>publicaciones</span></div>
+    <div class="st"><b data-count="5">5</b><span>años en la calle</span></div>
+    <div class="st"><b data-count="2">2</b><span>puntos: Doral y Kendall</span></div>
+  </div>
+</div>
+
+<section id="menu"><div class="wrap">
+  <h2 class="sec-title reveal">El menú</h2>
+  <p class="sec-sub reveal">Todo se hace al momento, en el budare, frente a ti.</p>
+  <div class="cards">
+    <div class="dish reveal" data-d="1"><div class="imgbox"><img src="img/plato-arepa.png" alt="Arepas rellenas"></div><div class="body"><h3>Las Arepas</h3><p>Reina pepiada, pelúa, dominó, catira. Rellenas a reventar — lo que nos hizo famosos.</p></div></div>
+    <div class="dish reveal" data-d="2"><div class="imgbox"><img src="img/plato-cachapa.png" alt="Cachapa con queso de mano"></div><div class="body"><h3>Cachapa con queso de mano</h3><p>Dulcita, recién hecha en el budare, con su mantequilla.</p></div></div>
+    <div class="dish reveal" data-d="3"><div class="imgbox"><img src="img/plato-tequenos.png" alt="Mini tequeños"></div><div class="body"><h3>Mini Tequeños</h3><p>Crujientes por fuera, queso derretido por dentro. Para picar mientras esperas.</p></div></div>
+  </div>
+</div></section>
+
+<div class="band">
+  <video autoplay muted loop playsinline><source src="img/sizzle.mp4" type="video/mp4"></video>
+  <div class="scrim"></div>
+  <div class="wrap reveal">
+    <h2>En el budare, frente a ti</h2>
+    <p>Nada precocido. Como en la calle en Caracas.</p>
+  </div>
+</div>
+
+<section><div class="wrap">
+  <h2 class="sec-title reveal">¿Por qué Arepa Point?</h2>
+  <p class="sec-sub reveal">Empezamos como un food truck en plena pandemia. Hoy somos parada obligada.</p>
+  <div class="why">
+    <div class="reveal" data-d="1"><div class="em">🫓</div><h3>Original street arepera</h3><p>Desde julio de 2020 en la calle. La arepa como se come en Venezuela.</p></div>
+    <div class="reveal" data-d="2"><div class="em">🌙</div><h3>Abierto cuando otros cierran</h3><p>De martes a domingo, de 7pm hasta medianoche. Los sábados, hasta la 1am.</p></div>
+    <div class="reveal" data-d="3"><div class="em">📍</div><h3>Dos puntos en Miami</h3><p>Doral y Kendall. Búscanos donde te quede más cerca.</p></div>
+  </div>
+</div></section>
+
+<div class="reviews">
+  <div class="marquee" id="mq">
+    <div class="rev"><div class="stars">🏆</div><div class="q">Nos colocaron en su <b>top de las mejores arepas de Miami</b>.</div><div class="who">— @thehungrypost & @pan_us</div></div>
+    <div class="rev"><div class="stars">📰</div><div class="q">Reseñados por <b>The Infatuation</b> en su guía de Miami.</div><div class="who">— The Infatuation</div></div>
+    <div class="rev"><div class="stars">🔥</div><div class="q">Más de <b>52.000 seguidores</b> y reels con cientos de miles de vistas.</div><div class="who">— @arepa.point en Instagram</div></div>
+    <div class="rev"><div class="stars">🫓</div><div class="q">Arrancamos en <b>plena pandemia</b>, julio 2020. Ya son 5 años en la calle.</div><div class="who">— Nuestra historia</div></div>
+  </div>
+</div>
+
+<section id="contacto"><div class="wrap reveal">
+  <div class="contact">
+    <h2>Ven por tu arepa</h2>
+    <p>Estamos en Doral y en Kendall, de martes a domingo por la noche. Escríbenos por Instagram y te decimos dónde estamos hoy.</p>
+    <a class="btn btn-primary" style="background:var(--gold);color:#2a1c08" href="https://www.instagram.com/arepa.point/" target="_blank" rel="noopener">📷 Escríbenos por Instagram</a>
+    <div class="info">
+      <span>📍 Doral · Kendall</span>
+      <span>🕒 Mar–Dom · 7pm–12am (Sáb hasta 1am)</span>
+      <span>📷 @arepa.point</span>
+    </div>
+  </div>
+</div></section>
+
+<a class="wafloat" style="background:#e6a23c" href="https://www.instagram.com/arepa.point/" target="_blank" rel="noopener" title="Escríbenos por Instagram">📷</a>
+<footer>
+  Sitio de demostración creado con un <b>agente de IA</b> en minutos para <b>Arepa Point Miami</b> (@arepa.point), un negocio real que hoy no tiene página web.<br>
+  Datos e imágenes de referencia · el menú y los precios los confirma el negocio · sin teléfonos ni datos de contacto por privacidad.<br>
+  <b>AIBuilderX</b> — ganar dinero con IA sin programar
+</footer>
+
+<script>
+  // reveal on scroll
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  // duplicar marquee para loop continuo
+  const mq=document.getElementById('mq'); mq.innerHTML+=mq.innerHTML;
+  // contadores animados
+  function animate(el){
+    const target=parseFloat(el.dataset.count),dec=+(el.dataset.dec||0),suf=el.dataset.suf||'';
+    let cur=0;const step=target/60;
+    const t=setInterval(()=>{cur+=step;if(cur>=target){cur=target;clearInterval(t);}
+      el.textContent=(dec?cur.toFixed(dec):Math.floor(cur).toLocaleString('es-ES'))+suf;},18);
+  }
+  const cobs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){animate(e.target);cobs.unobserve(e.target);}}),{threshold:.6});
+  document.querySelectorAll('.st b').forEach(el=>cobs.observe(el));
+</script>
+</body>
+</html>
